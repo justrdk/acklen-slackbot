@@ -31,8 +31,18 @@ class SlackTroll {
 			});
 		});
 
-		robot.hear(/what an interesting link/i, (msg: any) => {
+		robot.respond(/what an interesting link right?/i, (msg: any) => {
 			var promise = this.promise("http://version1.api.memegenerator.net/Instance_Create?username=matador&password=matador&languageCode=en&generatorID=45&imageID=9488555&text0=So youve decided to share a link&text1=Please tell us more about it");
+
+			promise.then((body) => {
+				var memeData = JSON.parse(body);
+				var memeURL = memeData.result.instanceImageUrl;
+				msg.reply(memeURL);
+			});
+		});
+
+		robot.hear(/awkward moment/i, (msg: any) => {
+			var promise = this.promise("http://version1.api.memegenerator.net/Instance_Create?username=matador&password=matador&languageCode=en&generatorID=45&imageID=11226761&text0=Well&text1=This is awkward");
 
 			promise.then((body) => {
 				var memeData = JSON.parse(body);
