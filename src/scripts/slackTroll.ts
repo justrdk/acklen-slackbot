@@ -23,7 +23,7 @@ class SlackTroll {
 			promise.then((body) => {
 				var random: any = Math.floor(Math.random() * 100);
 
-				if (random < 50) {
+				if (random < 95) {
 					var memeData = JSON.parse(body);
 					var memeURL = memeData.result.instanceImageUrl;
 					msg.reply(memeURL);
