@@ -9,5 +9,6 @@
   "hubot-shipit",
   "hubot-youtube",
   "hubot-heroku-keepalive",
-  "hubot-redis-brain"
+  "hubot-redis-brain",
+  "hubot-cron"
 ]
