@@ -1,8 +1,3 @@
-/// <reference path="../../typings/mocha/mocha.d.ts" />
-/// <reference path="../../typings/chai/chai.d.ts" />
-/// <reference path="../../typings/node/node.d.ts"/>
-/// <reference path="../helpers/messageSender.ts"/>
-/// <reference path="./fakes/fakeResponse.ts"/>
 "use strict";
 var _this = this;
 var chai = require('chai');

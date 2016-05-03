@@ -1,4 +1,3 @@
-/// <reference path="../../../typings/es6-promise/es6-promise.d.ts" />
 "use strict";
 var rsvp = require('es6-promise');
 var Promise = rsvp.Promise;

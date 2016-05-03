@@ -1,5 +1,4 @@
 "use strict";
-/// <reference path="../../typings/node/node.d.ts"/>
 // Description
 //  Mention anything about time zone, nashville time, or honduran time and you get taunted.
 //

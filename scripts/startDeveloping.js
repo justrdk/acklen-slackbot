@@ -1,4 +1,3 @@
-/// <reference path="../../typings/node/node.d.ts"/>
 "use strict";
 var ms = require("../helpers/messageSender");
 var ts = require("../helpers/trelloService");

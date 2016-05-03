@@ -1,4 +1,3 @@
-/// <reference path="../../typings/node/node.d.ts"/>
 // Description
 //  A python interpreter for hubot.
 //

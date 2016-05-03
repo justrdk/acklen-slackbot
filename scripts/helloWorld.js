@@ -1,4 +1,3 @@
-/// <reference path="../../typings/node/node.d.ts"/>
 // Description
 //  An example Hubot script written in TypeScript
 //

@@ -1,4 +1,3 @@
-/// <reference path="../../typings/node/node.d.ts"/>
 "use strict";
 // Description:
 //   Chuck Norris awesomeness

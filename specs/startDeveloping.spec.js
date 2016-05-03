@@ -1,11 +1,3 @@
-/// <reference path="../../typings/mocha/mocha.d.ts" />
-/// <reference path="../../typings/chai/chai.d.ts" />
-/// <reference path="../../typings/chai-as-promised/chai-as-promised.d.ts" />
-/// <reference path="../../typings/node/node.d.ts"/>
-/// <reference path="../helpers/messageSender.ts"/>
-/// <reference path="./fakes/fakeResponse.ts"/>
-/// <reference path="../../typings/mocha/mocha.d.ts" />
-/// <reference path="../scripts/startDeveloping.ts" />
 "use strict";
 var _this = this;
 var StartDevelopment = require('../scripts/StartDeveloping');

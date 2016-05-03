@@ -1,5 +1,3 @@
-/// <reference path="../../typings/node/node.d.ts"/>
-/// <reference path="../../typings/underscore/underscore.d.ts"/>
 // Description
 //  A Hubot script written in TypeScript to show information about acklen avenue project
 //
