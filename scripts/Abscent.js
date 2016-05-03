@@ -11,6 +11,7 @@
 // Author:
 //   Richard Siwady   <richard@acklenavenue.com>
 //   Douglas Guerrero <dguerrero@acklenavenue.com>
+"use strict";
 var parseDb = require("../helpers/parseDB");
 var Abscent = (function () {
     function Abscent(HubotParseDb) {
@@ -49,10 +50,13 @@ var Abscent = (function () {
                 _this.HubotParseDb.userIsBack(user.name);
             });
         };
-        this.regex = new RegExp('\\b(' + this.commands.join('|') + ')\\s+(' + this.adjectives.join('|') + ')\\s+([0-9]+)\\s+(' + this.format.join('|') + ')\\b', 'i');
+        this.regex = new RegExp('\\b(' + this.commands.join('|') + ')\\s+(' +
+            this.adjectives.join('|') +
+            ')\\s+([0-9]+)\\s+(' +
+            this.format.join('|') + ')\\b', 'i');
     }
     return Abscent;
-})();
+}());
 var HubotParseDb = parseDb.HubotParseDb;
 var fn = new Abscent(new HubotParseDb()).hubotAction;
 module.exports = fn;

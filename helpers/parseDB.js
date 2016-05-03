@@ -1,3 +1,4 @@
+"use strict";
 var Parse = require('parse').Parse;
 var moment = require('moment');
 var HubotParseDb = (function () {
@@ -17,8 +18,7 @@ var HubotParseDb = (function () {
             },
             error: function (parseClass, error) {
                 return error.message;
-            }
-        });
+            } });
         return '';
     };
     HubotParseDb.prototype.checkIsAbscent = function (messageSender, user) {
@@ -100,5 +100,5 @@ var HubotParseDb = (function () {
         return new Date(date.getTime() + minutes * 60000);
     };
     return HubotParseDb;
-})();
+}());
 exports.HubotParseDb = HubotParseDb;

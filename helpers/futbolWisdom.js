@@ -1,3 +1,4 @@
+"use strict";
 var HubotFutbolWisdom = (function () {
     function HubotFutbolWisdom(promise) {
         this.promise = promise;
@@ -122,5 +123,5 @@ var HubotFutbolWisdom = (function () {
         });
     };
     return HubotFutbolWisdom;
-})();
+}());
 exports.HubotFutbolWisdom = HubotFutbolWisdom;
