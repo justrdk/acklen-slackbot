@@ -27,16 +27,15 @@ module.exports = function(robot){
 	var _ = require('underscore');
 	var q = require('q');
 	var moment = require('moment');
-	
 	var cronJob = require('cron').CronJob;
 	var tz = 'America/Chicago';
-	
+
 	var Trello = require("node-trello");
 	var t = new Trello(process.env.HUBOT_TRELLO_KEY, process.env.HUBOT_TRELLO_TOKEN);
-	
+
 	var seconds = 120;
 	setInterval(checkTrelloForOldCardsInDevelopment, seconds * 1000);
-	
+
 	var loaded = false;
 	robot.brain.on('loaded', function(){
 		if(!loaded){
@@ -54,7 +53,7 @@ module.exports = function(robot){
   	}
 
   	function getBoard(boardId){
-  		return getOneFromTrello("/1/members/me/boards", {}, function(b){  
+  		return getOneFromTrello("/1/members/me/boards", {}, function(b){
   			return b.shortLink === boardId;
   		});
   	}
@@ -64,10 +63,10 @@ module.exports = function(robot){
   	};
 
   	function getCardsFromList(boardId, listName){
-  		return getList(boardId, listName)  			
+  		return getList(boardId, listName)
   			.then(function(list){
   				return getCards(list);
-  			});	
+  			});
   	}
 
   	function notifyCardIsStale(channel, card){
@@ -75,12 +74,12 @@ module.exports = function(robot){
   	};
 
   	function getFromTrello(url, options){
-  		var deferred = q.defer();		
-		t.get(url, options, function(error, data){ 
+  		var deferred = q.defer();
+		t.get(url, options, function(error, data){
 			if(error){
 				console.log("Error for " + url);
 				console.log(error);
-				deferred.reject(new Error('#{url} failed. #{error}'));								
+				deferred.reject(new Error('#{url} failed. #{error}'));
 			}else if(!data.length){
 				console.log("No items found for " + url);
 				deferred.reject(new Error('#{url} resulted in 0 results.'));
@@ -111,10 +110,10 @@ module.exports = function(robot){
 			cards.forEach(function(card){
 				if(moment(card.dateLastActivity).add(minutes, 'minutes') < moment())
 				{
-					notifyCardIsStale(channel, card);	
+					notifyCardIsStale(channel, card);
 				}
-			});						
-  		});		
+			});
+  		});
   	}
 
 	function checkTrelloForOldCardsInDevelopment(){
@@ -136,9 +135,9 @@ module.exports = function(robot){
 				return;
 			}
 			checkListForStaleCards(channel.threshold, channel.name, channel.boardId, channel.listName);
-		});		
+		});
 	}
-	
+
 	robot.respond(/timeTroll remove/i, function(msg){
 		removeChannel(msg.message.room);
 		msg.send("timeTroll has been removed from this channel.");
@@ -177,11 +176,11 @@ module.exports = function(robot){
 			msg.send("timeTroll is not sure how you want to set " + thingToSet + ".");
 			return;
 		}
-		
+
 		var channelName = msg.message.room;
 		setChannelProp(channelName, thingToSet, valueOfTheThing);
     	msg.send("Thanks. Added " + thingToSet + "=" + valueOfTheThing + " to " + channelName);
-	});  
+	});
 
 	function setChannelProp(channelName, key, val){
 		var channels = robot.brain.get("timeTroll_channels") || [];
@@ -191,10 +190,10 @@ module.exports = function(robot){
 			if(c.name === channelName){
 				c[key] = val;
 			}
-			return c;		
+			return c;
 		});
 
-		robot.brain.set("timeTroll_channels", channels);		
+		robot.brain.set("timeTroll_channels", channels);
 	}
 
 	function getChannel(channelName){
@@ -205,7 +204,7 @@ module.exports = function(robot){
 			return c.name == channelName;
 		});
 
-		return channel;		
+		return channel;
 	}
 
 	function removeChannel(channelName){
@@ -226,7 +225,7 @@ module.exports = function(robot){
     		channels.push({
     			name : channelName,
     			threshold: 60
-    		});    		
+    		});
     	}
 	}
 

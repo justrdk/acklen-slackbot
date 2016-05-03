@@ -1,3 +1,4 @@
+"use strict";
 /// <reference path="../../typings/node/node.d.ts"/>
 var _ = require("underscore");
 var GithubServices = (function () {
@@ -85,5 +86,5 @@ var GithubServices = (function () {
         });
     };
     return GithubServices;
-})();
+}());
 exports.GithubServices = GithubServices;

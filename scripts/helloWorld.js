@@ -1,4 +1,3 @@
-/// <reference path="../../typings/node/node.d.ts"/>
 // Description
 //  An example Hubot script written in TypeScript
 //
@@ -10,6 +9,7 @@
 //
 // Author:
 //   Byron Sommardahl <byron@acklenavenue.com>
+"use strict";
 function HelloWorld(robot) {
     robot.respond(/hello/i, function (msg) {
         msg.reply('Howdy!');

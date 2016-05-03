@@ -1,3 +1,4 @@
+"use strict";
 var MessageSender = (function () {
     function MessageSender() {
     }
@@ -12,5 +13,5 @@ var MessageSender = (function () {
         }
     };
     return MessageSender;
-})();
+}());
 exports.MessageSender = MessageSender;

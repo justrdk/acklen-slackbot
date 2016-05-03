@@ -1,4 +1,4 @@
-/// <reference path="../../typings/node/node.d.ts"/>
+"use strict";
 // Description:
 //   Chuck Norris awesomeness
 //
@@ -34,7 +34,7 @@ var GamerBot = (function () {
         };
     }
     return GamerBot;
-})();
+}());
 var httpClient = require("request-promise");
 var MessageSender = ms.MessageSender;
 var GamerBotHelper = imp.GamerBotHelper;

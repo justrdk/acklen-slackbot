@@ -1,3 +1,4 @@
+"use strict";
 var _ = require('underscore');
 var GamerBotHelper = (function () {
     function GamerBotHelper(getClient) {
@@ -10,13 +11,15 @@ var GamerBotHelper = (function () {
         if (name && name.trim() != "") {
             urlSteamId = urlSteamId + name.trim();
             var promise = that.getClient(urlSteamId);
-            return promise.then(function (body) {
+            return promise
+                .then(function (body) {
                 var response = JSON.parse(body).response;
                 if (response.success != 1)
                     return "Oops man, you were not found!";
                 urlToGet = urlToGet + response.steamid;
                 var promise2 = that.getClient(urlToGet);
-                return promise2.then(function (body2) {
+                return promise2
+                    .then(function (body2) {
                     var resultJson = JSON.parse(body2);
                     var gameCount = +resultJson.response.game_count;
                     var gameNotPlayed = +_.where(resultJson.response.games, { playtime_forever: 0 }).length;
@@ -37,5 +40,5 @@ var GamerBotHelper = (function () {
         }
     };
     return GamerBotHelper;
-})();
+}());
 exports.GamerBotHelper = GamerBotHelper;

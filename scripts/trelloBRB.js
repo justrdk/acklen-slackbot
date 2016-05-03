@@ -1,4 +1,3 @@
-/// <reference path="../../typings/node/node.d.ts"/>
 // Configuration:
 //   None
 //
@@ -7,6 +6,7 @@
 //
 // Author:
 //   Juan Jose Guevara, Aida Martinez <juanjose@acklenavenue.com, >
+"use strict";
 var httpClient = require('request-promise');
 var key = "797802d631d9baf29d186424fe55c3c3";
 var token = "259861bea77d82e20ddb7bcbfde81cb49c7f04ec4dd62f361a8c35099471c8bb";
@@ -22,7 +22,8 @@ function TrelloBRB(robot) {
     function moveCardsToPausedList(msg) {
         var username = msg.match[1].trim();
         var options = {
-            uri: "https://api.trello.com/1/lists/" + in_development_list_id + "/cards?key=" + key + "&token=" + token + "&members=true",
+            uri: "https://api.trello.com/1/lists/" + in_development_list_id + "/cards?key=" +
+                key + "&token=" + token + "&members=true",
             method: "GET"
         };
         httpClient(options).then(function (cards) {
@@ -44,7 +45,8 @@ function TrelloBRB(robot) {
                 for (var i = 0; i < card_to_move.length; i++) {
                     msg.send("moving card: " + card_to_move[i].name);
                     httpClient({
-                        uri: "https://api.trello.com/1/cards/" + card_to_move[i].id + "/idList?value=" + paused_list_id + "&key=" + key + "&token=" + token,
+                        uri: "https://api.trello.com/1/cards/" + card_to_move[i].id +
+                            "/idList?value=" + paused_list_id + "&key=" + key + "&token=" + token,
                         method: "PUT"
                     }).then(function (response) {
                         var card_moved = JSON.parse(response);
@@ -90,7 +92,8 @@ function TrelloBRB(robot) {
                 for (var i = 0; i < card_to_move.length; i++) {
                     msg.send("moving card: " + card_to_move[i].name);
                     httpClient({
-                        uri: "https://api.trello.com/1/cards/" + card_to_move[i].id + "/idList?value=" + in_development_list_id + "&key=" + key + "&token=" + token,
+                        uri: "https://api.trello.com/1/cards/" + card_to_move[i].id +
+                            "/idList?value=" + in_development_list_id + "&key=" + key + "&token=" + token,
                         method: "PUT"
                     }).then(function (response) {
                         var card_moved = JSON.parse(response);

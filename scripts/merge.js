@@ -1,4 +1,4 @@
-/// <reference path="../../typings/node/node.d.ts"/>
+"use strict";
 var ms = require("../helpers/messageSender");
 var ts = require("../helpers/trelloService");
 var github = require("../helpers/githubService");
@@ -18,7 +18,7 @@ var Merge = (function () {
         };
     }
     return Merge;
-})();
+}());
 var httpClient = require("request-promise");
 var MessageSender = ms.MessageSender;
 var TrelloService = ts.TrelloService;

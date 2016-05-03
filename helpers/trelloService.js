@@ -1,3 +1,4 @@
+"use strict";
 /// <reference path="../../typings/node/node.d.ts"/>
 var _ = require("underscore");
 var TrelloService = (function () {
@@ -46,5 +47,5 @@ var TrelloService = (function () {
             return this.readyForTesting;
     };
     return TrelloService;
-})();
+}());
 exports.TrelloService = TrelloService;
