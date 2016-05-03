@@ -1,2 +1,1 @@
-gulp
 sh bin/hubot
